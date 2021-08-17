@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_test_addon_test_addon,test_addon.test_addon,model_test_addon_test_addon,base.group_user,1,1,1,1
+access_hello_world_sale_order_claim_wizard_user,Hello World Sale Order Claim Wizard User,model_hello_world_sale_order_claim_wizard,group_hello_world_user,1,0,0,0
+access_hello_world_sale_order_wizard_manager,Hello World Sale Order Claim Wizard Manager,model_hello_world_sale_order_claim_wizard,group_hello_world_manager,1,1,1,1

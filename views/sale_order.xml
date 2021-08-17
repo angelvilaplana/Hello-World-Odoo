@@ -7,8 +7,20 @@
         <field name="arch" type="xml">
             <xpath expr="/form/header" position="after">
                 <field name="claims_ids" invisible="1"/>
-                <div class="alert-claim-sale-order" attrs="{'invisible': [('claims_ids', '=', [])]}">
+                <field name="claims_not_rejected" invisible="1"/>
+                <div class="alert-claim-sale-order" attrs="{'invisible': [('claims_not_rejected', '=', [])]}">
+                    There are active claims about this order!
+                    <button name="action_show_claims" type="object" string="Show claims"/>
+                </div>
+                <div class="notify-claim-sale-order" attrs="{
+                    'invisible': [
+                        '|',
+                        ('claims_not_rejected', '!=', []),
+                        ('claims_ids', '=', [])
+                    ]
+                }">
                     There are claims about this order!
+                    <button name="action_show_claims" type="object" string="Show claims"/>
                 </div>
             </xpath>
             <xpath expr="//field[@name='order_line']" position="after">

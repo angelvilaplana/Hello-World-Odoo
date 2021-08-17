@@ -16,4 +16,29 @@
     color: white;
     padding: 10px 20px;
     font-weight: 700;
+
+    button[name="action_show_claims"] {
+        font-size: 12px;
+        margin-left: 10px;
+        background: none;
+        color: white;
+        font-weight: 700;
+        border: 1px solid white;
+    }
+}
+
+.notify-claim-sale-order {
+    background-color: #a9a9a9;
+    color: white;
+    padding: 10px 20px;
+    font-weight: 700;
+
+    button[name="action_show_claims"] {
+        font-size: 12px;
+        margin-left: 10px;
+        background: none;
+        color: white;
+        font-weight: 700;
+        border: 1px solid white;
+    }
 }

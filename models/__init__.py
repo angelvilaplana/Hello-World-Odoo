@@ -2,4 +2,5 @@
 
 from . import crm_claim
 from . import ir_actions_report
+from . import sale_order_claim_wizard
 from . import sale_order

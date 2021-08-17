@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hello_world_crm_sale_view_order_claims" model="ir.ui.view">
+        <field name="name">hello_world.sale_order_claims</field>
+        <field name="model">hello_world.sale_order_claim_wizard</field>
+        <field name="type">form</field>
+         <field name="arch" type="xml">
+            <form create="false">
+                <separator string="Claims" colspan="6" />
+                <newline/>
+                <field name="claims_sales" readonly="0"/>
+            </form>
+         </field>
+    </record>
+</odoo>
