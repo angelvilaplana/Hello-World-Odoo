@@ -2,18 +2,19 @@
 
 from odoo import fields, models
 
+class CarrierTracking(models.Model):
+    _name = "hello_world.carrier_tracking"
 
-class StockPicking(models.Model):
-    _inherit = "stock.picking"
+    stock_picking_id = fields.Many2one('stock.picking', 'Stock Picking')
 
-    tracking_number_response = fields.Text(
-        string="Last SEUR xml request",
+    tracking_number = fields.Char(
+        string="Last tracking number response",
         help="Used to prevent duplicate api calls",
         copy=False,
         readonly=True,
     )
 
-    label_data_response = fields.Text(
+    label_data = fields.Text(
         string="Last label data response",
         help="Used to prevent duplicate api calls",
         copy=False,

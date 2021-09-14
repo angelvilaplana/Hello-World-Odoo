@@ -18,22 +18,24 @@ class DeliveryCarrier(models.Model):
         for picking in pickings:
             # If you have tracking_number and label_data,
             # is not necessary to "call API" again
-            if picking.tracking_number_response and picking.label_data_response:
+            carrier_tracking = self.env['hello_world.carrier_tracking'].search(
+                [('stock_picking_id','=',picking.id)], limit=1)
+            if carrier_tracking and carrier_tracking.tracking_number and carrier_tracking.label_data:
                 self.picking_message_post(
-                    pickings, 
-                    picking.tracking_number_response, 
-                    picking.label_data_response
+                    picking, 
+                    carrier_tracking.tracking_number, 
+                    carrier_tracking.label_data
                 )
                 res.append({
                     'exact_price': 0.0,
-                    'tracking_number': picking.tracking_number_response
+                    'tracking_number': carrier_tracking.tracking_number
                 })
             else:
                 # Simulate call api & get values
                 tracking_number = 'XXXXXXXX'
                 label_data = 'Hello World Label Data Content Test'
 
-                # Save data in the picking by calling a controller
+                # Save data in the "carrier_tracking" table by calling a controller
                 self.picking_save_data(picking, tracking_number, label_data)
 
                 # Post message Picking with the label data
